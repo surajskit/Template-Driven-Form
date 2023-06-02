@@ -1,0 +1,84 @@
+<section>
+  <!-- ... existing code ... -->
+  <div class="inner-section">
+    <ul class="flexbox">
+      <li class="top">
+        <a class="col" href="#">Request a Quote | </a>
+        <a class="col" href="#"> Client Login |</a>
+        <a class="col" href="#"> Vehile Export Portal |</a>
+      </li>
+    </ul>
+
+    <div class="logoimg">
+      <img id=image src="../../assets/Images/logo.png" alt="logo">
+    </div>
+    <div class="Navbar">
+
+      <div class="home">
+        <a class="homebar" href="#"> HOME </a>
+        <a class="homebar" href="#"> ABOUT FTZWS </a>
+        <a class="homebar" href="#">OUR SERVICES </a>
+        <a class="homebar nav-item active" routerLink="/add-employee" routerLinkActive="active" href="/add-employee">ADD
+          EMPLOYEE </a>
+        <a class="homebar " href="/employee-detail">EMPLOYEE DETAILS</a>
+      </div>
+    </div>
+
+    <div class="servicetitlefield"> </div> <!-- for gap between nav and body -->
+
+    <div class="form-cover">
+      <div class="form-box">
+        <h2>Enter The Details Below</h2>
+        <!-- employeeForm.form.valid && -->
+        <form #employeeForm="ngForm" (ngSubmit)="validateForm()" class="fs-5" id="employeeForm" method="post">
+          <div class="mb-3 form-group">
+            <label for="name" class="form-label">Enter Your Name</label>
+            <input type="text" class="form-control ms-2 border border-secondary" id="name" name="name" ngModel required minlength="2" maxlength="50">
+            <div *ngIf="(employeeForm.controls['name'].dirty || employeeForm.controls['name'].touched || employeeForm.submitted) && employeeForm.controls['name'].errors">
+              <div *ngIf="employeeForm.controls['name'].errors['required']">Name is required.</div>
+              <div *ngIf="employeeForm.controls['name'].errors['minlength']">Name should be at least 2 characters long.</div>
+              <div *ngIf="employeeForm.controls['name'].errors['maxlength']">Name cannot exceed 50 characters.</div>
+            </div>
+            </div>
+          
+          <div class="mb-3">
+            <label for="score" class="form-label">Enter Your Score</label>
+            <input type="number" class="form-control ms-2 border border-secondary" id="score" name="score" ngModel required min="0" max="100">
+            <div *ngIf="(employeeForm.controls['score'].dirty || employeeForm.controls['score'].touched || employeeForm.submitted) && employeeForm.controls['score'].errors">
+              <div *ngIf="employeeForm.controls['score'].errors['required']">Score is required.</div>
+              <div *ngIf="employeeForm.controls['score'].errors['min'] || employeeForm.controls['score'].errors['max']">Score should be between 0 to 100.</div>
+            </div>
+            
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Enter Your Email</label>
+            <input type="email" class="form-control ms-2 border border-secondary" id="email" name="email"  ngModel pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required email >
+            <div *ngIf="(employeeForm.controls['email'].dirty || employeeForm.controls['email'].touched || employeeForm.submitted) && employeeForm.controls['email'].errors">
+              <div *ngIf="employeeForm.controls['email'].errors['required']">Email is required.</div>
+              <div *ngIf="employeeForm.controls['email'].errors['pattern']">Invalid email format.</div>
+            </div>
+            
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <button type="reset" class="btn btn-danger px-4" (click)="resetHandler()">Reset</button>
+            <button type="submit" class="btn btn-success px-4" #submitButton>Submit</button>
+            <!-- [disabled]="!employeeForm.valid" -->
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+    <!-- ... existing code ... -->
+    <div class="footer">
+      <h6 class="last">Copyright @ 2010 </h6>
+      <h6 class="last">FTZ World Services.</h6>
+      <h6 class="last">All Right Reserved.</h6>
+      <a class="last l1" href="#">Contact Us |</a>
+      <a class="last l1" href="#">Request a Quote |</a>
+
+    </div>
+  </div>
+</section>

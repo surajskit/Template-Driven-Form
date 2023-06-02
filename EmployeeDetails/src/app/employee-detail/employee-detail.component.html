@@ -1,0 +1,79 @@
+<!-- <p>employee-detail works!</p> -->
+<section>
+    <div class="inner-section">
+      <ul class="flexbox">
+        <li class="top">
+          <a class="col" href="#">Request a Quote | </a>
+          <a class="col" href="#"> Client Login |</a>
+          <a class="col" href="#"> Vehile Export Portal |</a>
+        </li>
+      </ul>
+
+      <div class="logoimg">
+        <img id=image src="../../assets/Images/logo.png" alt="logo">
+      </div>
+      <div class="Navbar">
+
+        <div class="home">
+          <a class="homebar" href="#"> HOME </a>
+          <a class="homebar" href="#"> ABOUT FTZWS </a>
+          <a class="homebar" href="#">OUR SERVICES </a>
+          <a class="homebar" href="AddEmployee.html">ADD EMPLOYEE </a>
+          <a class="homebar active " routerLink="/employee-detail" routerLinkActive="active" href="/employee-detail">EMPLOYEE DETAILS</a>
+        </div>
+      </div>
+      <div class="servicetitlefield"> </div> <!-- for gap between nav and body -->
+
+<!-- Code for only Employee Details section area start here-->
+      <div class="form-cover ">
+        <form class="empdetail-form">
+          <div class="input-group mb-3">
+            <input type="text" id="searchBox" onkeyup="searchTable()" class="form-control" placeholder="Search...">
+          </div>
+        </form>
+        <div class="table-scrollbar">
+          <table id="employeeTable" class="table table-bordered text-white">
+            <thead>
+              <tr class="header-row">
+                <th><input type="checkbox" id="option-all" name="options[]" value="all" ></th>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+            <!-- Employee table rows will be added dynamically using JavaScript -->
+              <tr *ngFor="let employee of employees">
+                <td><input type="checkbox" id="checkBox"></td>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.score }}</td>
+                <td>{{ employee.email }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <br>
+        <div class="d-flex align-item-center ">
+          <button id="calculateBtn" class=" btn-info">Calculate</button>
+
+          <label for="average" class="text-white ms-5 pe-2">Average:</label>
+          <span id="average" class="text-white"></span>
+
+          <label for="maximum" class="text-white ms-5 pe-2">Max:</label>
+          <span id="maximum" class="text-white"></span>
+
+          <button id="delete-button" class=" btn-info">Delete selected rows</button>
+        </div>
+      </div>
+
+<!-- Code for only Employee Details section area end here-->
+      <div class="footer">
+        <h6 class="last">Copyright @ 2010 </h6>
+        <h6 class="last">FTZ World Services.</h6>
+        <h6 class="last">All Right Reserved.</h6>
+        <a class="last l1" href="#">Contact Us |</a>
+        <a class="last l1" href="#">Request a Quote |</a>
+      </div>
+    </div>
+  </section>
